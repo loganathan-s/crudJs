@@ -1,5 +1,5 @@
 class ExternalRequests{
-  const HEADERS = { 'Accept': 'application/json, text/plain, */*', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'}
+  const HEADERS = { 'Accept': 'application/json, text/plain, 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'}
 
   get(url){
     return fetch(url, {method: 'get', HEADERS})
