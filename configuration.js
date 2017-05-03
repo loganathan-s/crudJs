@@ -1,4 +1,4 @@
-const BACKENDAPP_URL="http://localhost:3001";
+const BACKENDAPP_URL="https://blooming-ocean-17792.herokuapp.com";
 
 //Named Export
 export {BACKENDAPP_URL};
