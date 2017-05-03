@@ -1,5 +1,5 @@
 //
-// Class to Manage all kind of events for the appication
+// Class to Manage all kind of events and act as middleware for the appication
 //
 import UserModel from "./userModel"
 
@@ -10,6 +10,9 @@ class MiddleMan {
 	  this.userForm = document.querySelector("#createUserForm");
 	}
 
+	//
+	// Attach Event Listners
+	//
 	init(){
 	   const adduser = document.querySelector("#addUser").addEventListener("click", this.updateNewUserModal.bind(this));
 	   const closeModalButtons = document.querySelectorAll(".closeModal");
@@ -18,7 +21,10 @@ class MiddleMan {
 	   this.user.index();
 	}
 
-	updateNewUserModal(element = false, modal = false){
+	//
+	//Reset the Modal Form & its data
+	//
+	updateNewUserModal(){
 	  document.querySelector("#modal-ter").classList.toggle('is-active');
 	  document.querySelector("[name=user_id]").value = false;
 	  document.querySelector("[type=submit]").value = "Add User";
@@ -26,6 +32,9 @@ class MiddleMan {
 	  this.userForm.reset();	
 	}
 
+	//
+	// Populate Modal form data for Edit feature
+	//
 	updateForm(event){
       const userInstance = this;
       let middleMan = new MiddleMan();
@@ -43,6 +52,9 @@ class MiddleMan {
 	  middleMan.userForm.querySelector("[name=user_id]").value = userId;
 	}
 
+	//
+	// Create/Update the Userdetails
+	//
 	handleForm(event){
 	  event.preventDefault();
 	  const userData = event.currentTarget.elements;

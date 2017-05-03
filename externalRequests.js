@@ -1,5 +1,11 @@
+//
+// This module handles all the external api requests
+//
 class ExternalRequests{
- 
+  
+  //
+  // Set Header for All the requests
+  //
   static get HEADERS() {
     return  {
               "Accept":  "application/json, text/plain", 
@@ -8,7 +14,9 @@ class ExternalRequests{
             }
     }
 
-
+  //
+  // GET Request
+  //  
   static get(url){
     return fetch(url)
    .then(response => {
@@ -21,7 +29,10 @@ class ExternalRequests{
       console.log(err);
     });
   }
-
+  
+  //
+  // POST Request
+  //  
   static post(url, data){
     return fetch(url, {method: 'post', mode: 'cors', headers: this.HEADERS, body: JSON.stringify(data)})
            .then(response => {
@@ -35,7 +46,10 @@ class ExternalRequests{
             });
   }
 
- static put(url, data){
+  //
+  // PUT Request
+  //  
+  static put(url, data){
     return fetch(url, {method: 'put', headers: this.HEADERS, body: JSON.stringify(data)})
     .then(response => {
       if (!response.ok) {
@@ -51,6 +65,9 @@ class ExternalRequests{
     
   }
   
+  //
+  // DELETE Request
+  //  
   static delete(url){
    return fetch(url, {method: 'delete', headers: this.HEADERS})
    .then(response => {
@@ -66,4 +83,5 @@ class ExternalRequests{
 
 }
 
+//Default Export
 export default ExternalRequests;
