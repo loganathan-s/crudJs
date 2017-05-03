@@ -41,7 +41,7 @@ class ExternalRequests{
       if (!response.ok) {
         throw new Error(response.statusText);
       }
-      return response.ok;
+      return response.json();
     })
     .catch(err => {
       console.log(err);
@@ -57,8 +57,7 @@ class ExternalRequests{
       if (!response.ok) {
         throw new Error(response.statusText);
       }
-      console.log(response)
-      return response;
+      return response.ok;
     })
      .catch((err) => {
          console.log(err);

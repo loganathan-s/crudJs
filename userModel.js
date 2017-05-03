@@ -9,6 +9,7 @@ class User{
 
   initialize(formElements){
   	let formData = [...formElements]; 
+    formData.pop();
   	formData.pop();
     return formData.reduce((userObj, data) => (userObj[`${data.name}`] = data.value, userObj), {});
   }
@@ -35,13 +36,18 @@ class User{
       });
   }
 
-  show(){
 
-  }
+  update(data, id){
+   let user = Request.put(`${CRUDAPP}/user_details/${id}`, {user_detail: data});
+       user.then(response => {
+         this.clearUserModal();
+         return this.updateUserDom(response);
+       })
+       .catch(err => {
+         return err.message
+        });
+    }
 
-  update(event){
-  
-  }
 
   delete(event){
     const userId = event.currentTarget.dataset.user;
@@ -55,6 +61,7 @@ class User{
   }
 
   updateUserList(user){
+      let middelware = new MiddleMan()
       const newUserRow =  document.querySelector("#userList").insertRow(1);
       newUserRow.setAttribute("id", `user${user.id}`);
       const [nameCell, emailCell, messageCell, createdAtCell, editCell, deleteCell]  = [newUserRow.insertCell(0), newUserRow.insertCell(1), newUserRow.insertCell(2), newUserRow.insertCell(3), newUserRow.insertCell(4), newUserRow.insertCell(5)];
@@ -70,13 +77,21 @@ class User{
       createdAtCell.appendChild(createdAtText);
       editCell.innerHTML = editText;
       deleteCell.innerHTML = deleteText;
-      document.querySelector(".editUser").addEventListener("click", this.update.bind(this));
+      document.querySelector(".editUser").addEventListener("click", middelware.updateForm.bind(this));
       document.querySelector(".deleteUser").addEventListener("click", this.delete.bind(this));
+  }
+
+  updateUserDom(user){
+    const userData =  document.querySelector(`#user${user.id}`).children;
+    let [name, email, message] = userData
+    name.textContent = `${user.first_name} ${user.last_name}`;
+    email.textContent = user.email;
+    message.textContent = user.message;
   }
 
   clearUserModal(){
       let middelware = new MiddleMan()
-      return middelware.updateNewUserModal(false, true);
+      return middelware.updateNewUserModal();
   }
 
   removeUserList(user){
