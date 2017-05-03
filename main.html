@@ -32,51 +32,50 @@
                 </header>
 
                  <section class="modal-card-body">
-                   <form action="" method="post">
+                   <form action="/" method="post" id="createUserForm">
+                      <div class="content">
+                       <div class="field">
+                              <label class="label">First Name</label>
+                              <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="Enter Your First Name" name="first_name">
+                                 <span class="icon is-small is-left">
+                                  <i class="fa fa-user"></i>
+                                </span>
+                              </p>
+                            </div>
 
-                    <div class="content">
-                     <div class="field">
-                            <label class="label">First Name</label>
-                            <p class="control has-icons-left has-icons-right">
-                              <input class="input" type="text" placeholder="Enter Your First Name" name="first_name">
-                               <span class="icon is-small is-left">
-                                <i class="fa fa-user"></i>
-                              </span>
-                            </p>
-                          </div>
+                            <div class="field">
+                              <label class="label">Last Name</label>
+                              <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="Enter Your Last Name" name="last_name">
+                                 <span class="icon is-small is-left">
+                                  <i class="fa fa-user"></i>
+                                </span>
+                              </p>
+                            </div>
 
-                          <div class="field">
-                            <label class="label">Last Name</label>
-                            <p class="control has-icons-left has-icons-right">
-                              <input class="input" type="text" placeholder="Enter Your Last Name" name="last_name">
-                               <span class="icon is-small is-left">
-                                <i class="fa fa-user"></i>
-                              </span>
-                            </p>
-                          </div>
+                            <div class="field">
+                              <label class="label">Email</label>
+                              <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="Your Email" name="email">
+                                <span class="icon is-small is-left">
+                                  <i class="fa fa-envelope"></i>
+                                </span>
+                              </p>
+                            </div>
 
-                          <div class="field">
-                            <label class="label">Email</label>
-                            <p class="control has-icons-left has-icons-right">
-                              <input class="input" type="text" placeholder="Your Email" >
-                              <span class="icon is-small is-left">
-                                <i class="fa fa-envelope"></i>
-                              </span>
-                            </p>
+                            <div class="field">
+                              <label class="label">Message</label>
+                              <p class="control">
+                                <textarea class="textarea" placeholder="Textarea" name="message"></textarea>
+                              </p>
+                            </div>
                           </div>
-
-                          <div class="field">
-                            <label class="label">Message</label>
-                            <p class="control">
-                              <textarea class="textarea" placeholder="Textarea"></textarea>
-                            </p>
-                          </div>
-                        </div>
-                    </section>
-                    <footer class="modal-card-foot">
-                      <a class="button is-success">Creat User</a>
-                      <a class="button closeModal" data-target="#modal-ter">Cancel</a>
-                    </footer>
+                      </section>
+                      <footer class="modal-card-foot">
+                      <input class="button is-success" type="submit" value="Create User">
+                        <a class="button closeModal" data-target="#modal-ter">Cancel</a>
+                      </footer>
                   </form>
         </div>
   </div>

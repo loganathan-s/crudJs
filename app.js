@@ -2,9 +2,11 @@ import EventListner from "./eventListners"
 
 class crudApp {
 	static start(){
-	  EventListner.init();		
+	  const listners = new EventListner
+	  listners.init();
 	}
 }
+
 window.addEventListener('load', function() {
   crudApp.start();	
 });
