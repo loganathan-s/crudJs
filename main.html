@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ES6 Crud App</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+          <script src="./_build/bundle.js"></script>
+
+</head>
+<body class="layout-documentation page-overview" data-gr-c-s-loaded="true" style="zoom: 1;">
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <nav class="columns">
+        <a class="column">
+          <h4>A Simple ES6 application to make  <strong>CRUD Operatation</strong>, designed for learning!</h4>
+        </a>
+        <a id="addUser" class="column is-primary is-large modal-button" data-target="#modal-ter"><strong>Add New User</strong></a>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div id="modal-ter" class="modal">
+    <div class="modal-background"></div>
+          <div class="modal-card">
+                <header class="modal-card-head">
+                  <p class="modal-card-title">New User Detail</p>
+                  <button class="delete closeModal" data-target="#modal-ter"></button>
+                </header>
+
+                 <section class="modal-card-body">
+                   <form action="" method="post">
+
+                    <div class="content">
+                     <div class="field">
+                            <label class="label">First Name</label>
+                            <p class="control has-icons-left has-icons-right">
+                              <input class="input" type="text" placeholder="Enter Your First Name" name="first_name">
+                               <span class="icon is-small is-left">
+                                <i class="fa fa-user"></i>
+                              </span>
+                            </p>
+                          </div>
+
+                          <div class="field">
+                            <label class="label">Last Name</label>
+                            <p class="control has-icons-left has-icons-right">
+                              <input class="input" type="text" placeholder="Enter Your Last Name" name="last_name">
+                               <span class="icon is-small is-left">
+                                <i class="fa fa-user"></i>
+                              </span>
+                            </p>
+                          </div>
+
+                          <div class="field">
+                            <label class="label">Email</label>
+                            <p class="control has-icons-left has-icons-right">
+                              <input class="input" type="text" placeholder="Your Email" >
+                              <span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                              </span>
+                            </p>
+                          </div>
+
+                          <div class="field">
+                            <label class="label">Message</label>
+                            <p class="control">
+                              <textarea class="textarea" placeholder="Textarea"></textarea>
+                            </p>
+                          </div>
+                        </div>
+                    </section>
+                    <footer class="modal-card-foot">
+                      <a class="button is-success">Creat User</a>
+                      <a class="button closeModal" data-target="#modal-ter">Cancel</a>
+                    </footer>
+                  </form>
+        </div>
+  </div>
+</section>
+<section class="allUsers section">
+ <div class="column is-half">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th></th>
+        <th></th>
+      </tr>
+     </thead>
+  </table>
+  </div>
+</section>
+
+</body>
+</html>

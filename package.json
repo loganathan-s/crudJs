@@ -1,0 +1,29 @@
+{  
+  "name": "simpleCrud",
+  "version": "1.0.0",
+  "description": "This is a simple ES6 crud Application",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack --progress --watch",
+    "start": "browser-sync start --server --files '*.css, *.html, *.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loganathan-s/crudJs.git"
+  },
+  "author": "Loganathan Sellappa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loganathan-s/crudJs/issues"
+  },
+  "homepage": "https://github.com/loganathan-s/crudJs#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015-native-modules": "^6.9.4",
+    "css-loader": "^0.28.0",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.4.1"
+  }
+}
+
