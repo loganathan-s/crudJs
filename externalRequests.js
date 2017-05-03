@@ -1,56 +1,70 @@
 class ExternalRequests{
-  const HEADERS = { 'Accept': 'application/json, text/plain, 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'}
+ 
+  static get HEADERS() {
+    return  {
+              "Accept":  "application/json, text/plain", 
+              "Content-Type": "application/json", 
+              "Access-Control-Allow-Origin": "*"
+            }
+    }
 
-  get(url){
-    return fetch(url, {method: 'get', HEADERS})
-    .catch(_ => {
-      throw new Error("network error");
-    })
-    .then(response => {
+
+  static get(url){
+    return fetch(url)
+   .then(response => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
       return response.json();
+    })
+   .catch(err => {
+      console.log(err);
     });
   }
 
-  post(url, data){
-    return fetch(url, {method: 'post', HEADERS, body: data})
-    .catch(_ => {
-      throw new Error("network error");
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      return response.json();
-    });
+  static post(url, data){
+    return fetch(url, {method: 'post', mode: 'cors', headers: this.HEADERS, body: JSON.stringify(data)})
+           .then(response => {
+              if (!response.ok) {
+                 throw new Error(response.statusText);
+              }
+              return response.json();
+            })
+           .catch((err) => {
+                 console.log(err);
+            });
   }
 
-  put(url, data){
-    return fetch(url, {method: 'put', HEADERS, body: data})
-    .catch(_ => {
-      throw new Error("network error");
-    })
+ static put(url, data){
+    return fetch(url, {method: 'put', headers: this.HEADERS, body: JSON.stringify(data)})
     .then(response => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
-      return response.json();
+      return response.ok;
+    })
+    .catch(err => {
+      console.log(err);
     });
+  
+
+    
   }
   
-  delete(){
-   return fetch(url, {method: 'delete', HEADERS})
-    .catch(_ => {
-      throw new Error("network error");
-    })
-    .then(response => {
+  static delete(url){
+   return fetch(url, {method: 'delete', headers: this.HEADERS})
+   .then(response => {
       if (!response.ok) {
         throw new Error(response.statusText);
       }
-      return response.json();
-    });
+      console.log(response)
+      return response;
+    })
+     .catch((err) => {
+         console.log(err);
+       });
   }
 
 }
+
+export default ExternalRequests;

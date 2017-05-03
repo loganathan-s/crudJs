@@ -1,9 +1,9 @@
-import EventListner from "./eventListners"
+import MiddleMan from "./middleMan"
 
 class crudApp {
 	static start(){
-	  const listners = new EventListner
-	  listners.init();
+	  const middleWare = new MiddleMan
+	  middleWare.init();
 	}
 }
 
