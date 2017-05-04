@@ -8,9 +8,7 @@ import MiddleMan from './middleman';
 class User{
 
   initialize(formElements){
-  	let formData = [...formElements]; 
-    formData.pop();
-  	formData.pop();
+  	let formData = [...[...formElements].slice(0, 4)]
     return formData.reduce((userObj, data) => (userObj[`${data.name}`] = data.value, userObj), {});
   }
 
