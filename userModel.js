@@ -8,6 +8,7 @@ import MiddleMan from './middleman';
 class User{
 
   initialize(formElements){
+    // Remove Submit Button & Hidden input from the form data
   	let formData = [...[...formElements].slice(0, 4)]
     return formData.reduce((userObj, data) => (userObj[`${data.name}`] = data.value, userObj), {});
   }
